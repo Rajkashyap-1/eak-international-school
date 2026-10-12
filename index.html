@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EAK International School | Inspiring Curiosity, Fostering Leadership</title>
+  <meta name="description" content="Welcome to EAK International School - A premier K-12 school delivering world-class academics, sports, and holistic student development.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   EAK INTERNATIONAL SCHOOL - DESIGN SYSTEM & GLOBAL STYLESHEET
+   Clean, Modern, Accessible CSS with CSS Variables & Responsive Layouts
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette */
+  --primary-900: #0a192f;
+  --primary-800: #0f2347;
+  --primary-700: #153268;
+  --primary-600: #1d458d;
+  --primary-500: #2563eb;
+  
+  --accent-gold: #f59e0b;
+  --accent-gold-hover: #d97706;
+  --accent-gold-light: #fef3c7;
+  
+  --secondary-teal: #0d9488;
+  --secondary-teal-light: #ccfbf1;
+  
+  /* Neutral Grays */
+  --neutral-900: #0f172a;
+  --neutral-800: #1e293b;
+  --neutral-700: #334155;
+  --neutral-600: #475569;
+  --neutral-500: #64748b;
+  --neutral-400: #94a3b8;
+  --neutral-300: #cbd5e1;
+  --neutral-200: #e2e8f0;
+  --neutral-100: #f1f5f9;
+  --neutral-50: #f8fafc;
+  --white: #ffffff;
+
+  /* Typography */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Elevation / Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.1), 0 4px 8px -2px rgba(15, 23, 42, 0.05);
+  --shadow-xl: 0 20px 30px -6px rgba(15, 23, 42, 0.15);
+
+  /* Borders & Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Layout */
+  --container-max: 1240px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* CSS Reset & Defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--neutral-50);
+  color: var(--neutral-700);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+/* Base Utility Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Top Announcement Banner */
+.top-bar {
+  background: var(--primary-900);
+  color: var(--neutral-300);
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.top-bar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.top-bar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.top-bar-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent-gold);
+}
+
+.top-bar-pill {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-gold);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+/* Header & Navigation Bar */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--neutral-200);
+  transition: all var(--transition-fast);
+}
+
+.site-header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 800;
+  color: var(--primary-900);
+}
+
+.brand-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-800), var(--primary-600));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary-900);
+  line-height: 1.1;
+}
+
+.brand-tagline {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--neutral-500);
+}
+
+/* Navigation Links */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobile-only-cta {
+  display: none;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--neutral-700);
+  position: relative;
+  padding: 0.5rem 0;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-600);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: var(--radius-full);
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Primary Button Styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  text-align: center;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: var(--primary-800);
+  color: var(--white);
+  border-color: var(--primary-800);
+}
+
+.btn-primary:hover {
+  background: var(--primary-900);
+  box-shadow: 0 4px 12px rgba(15, 35, 71, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background: var(--accent-gold);
+  color: var(--neutral-900);
+  border-color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.btn-accent:hover {
+  background: var(--accent-gold-hover);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--neutral-800);
+  border-color: var(--neutral-300);
+}
+
+.btn-outline:hover {
+  background: var(--neutral-100);
+  border-color: var(--neutral-400);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+}
+
+.btn-sm {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 0.9rem 1.8rem;
+  font-size: 1.05rem;
+}
+
+/* Mobile Toggle Hamburger */
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--neutral-800);
+}
+
+.mobile-toggle svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Section Common Styling */
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-bg-alt {
+  background-color: var(--white);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-600);
+  background: var(--neutral-100);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+}
+
+.section-badge.gold {
+  color: #b45309;
+  background: var(--accent-gold-light);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--neutral-900);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--neutral-600);
+}
+
+/* Breadcrumb Header for Inner Pages */
+.page-hero {
+  background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 60%, var(--primary-700) 100%);
+  color: var(--white);
+  padding: 4.5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page-hero-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.page-hero-desc {
+  font-size: 1.2rem;
+  color: var(--neutral-300);
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--neutral-400);
+}
+
+.breadcrumb a {
+  color: var(--neutral-300);
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-gold);
+}
+
+.breadcrumb-separator {
+  color: var(--neutral-500);
+}
+
+/* Card Elements */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--neutral-300);
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Footer Section */
+.site-footer {
+  background: var(--primary-900);
+  color: var(--neutral-400);
+  padding: 4.5rem 0 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.footer-about-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--neutral-300);
+}
+
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neutral-300);
+  transition: all var(--transition-fast);
+}
+
+.social-icon-btn:hover {
+  background: var(--accent-gold);
+  color: var(--neutral-900);
+  transform: translateY(-2px);
+}
+
+.footer-title {
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--accent-gold);
+}
+
+.footer-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-list a {
+  color: var(--neutral-300);
+  font-size: 0.92rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-nav-list a:hover {
+  color: var(--accent-gold);
+  transform: translateX(4px);
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.92rem;
+  color: var(--neutral-300);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.footer-contact-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--neutral-500);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Floating Action / Scroll-to-top Button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-800);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-fast);
+  z-index: 99;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-top-btn:hover {
+  background: var(--accent-gold);
+  color: var(--neutral-900);
+  transform: translateY(-3px);
+}
+
+/* Toast Notification for Forms */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--neutral-900);
+  color: var(--white);
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-left: 4px solid var(--accent-gold);
+  animation: toastFadeIn 0.3s ease;
+}
+
+@keyframes toastFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    box-shadow: var(--shadow-xl);
+    gap: 1.25rem;
+    border-top: 1px solid var(--neutral-200);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    transform: translateY(-150%);
+    transition: transform 0.35s ease;
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-menu .mobile-only-cta {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .page-hero-title {
+    font-size: 2.1rem;
+  }
+}
+
+</style>
+  <style>
+    /* Homepage Specific Enhancements */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(10, 25, 47, 0.95) 0%, rgba(15, 35, 71, 0.88) 100%), 
+                  url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color: var(--white);
+      padding: 6.5rem 0 7rem;
+      overflow: hidden;
+    }
+    .hero-content {
+      max-width: 680px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: var(--accent-gold);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title span {
+      background: linear-gradient(120deg, #f59e0b, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: var(--neutral-300);
+      margin-bottom: 2.25rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-stats-banner {
+      margin-top: 4.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .hero-stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-stat-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .hero-stat-label {
+      font-size: 0.85rem;
+      color: var(--neutral-300);
+      font-weight: 500;
+    }
+
+    /* Feature Pillars */
+    .pillar-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.75rem;
+      border: 1px solid var(--neutral-200);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--neutral-300);
+    }
+    .pillar-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: var(--neutral-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary-700);
+      transition: all var(--transition-fast);
+    }
+    .pillar-card:hover .pillar-icon {
+      background: var(--primary-800);
+      color: var(--accent-gold);
+    }
+    .pillar-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 0.75rem;
+    }
+    .pillar-desc {
+      font-size: 0.95rem;
+      color: var(--neutral-600);
+      line-height: 1.55;
+    }
+
+    /* Principal Message Split Section */
+    .split-box {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .split-image-wrap {
+      position: relative;
+    }
+    .split-image {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+    }
+    .experience-badge {
+      position: absolute;
+      bottom: -20px;
+      right: 20px;
+      background: var(--accent-gold);
+      color: var(--neutral-900);
+      padding: 1.2rem 1.6rem;
+      border-radius: var(--radius-lg);
+      font-weight: 800;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .experience-badge span {
+      font-size: 1.8rem;
+    }
+    .experience-badge small {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Academic Stage Cards */
+    .stage-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--neutral-200);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-normal);
+    }
+    .stage-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .stage-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .stage-content {
+      padding: 1.75rem;
+    }
+    .stage-grade {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-gold-hover);
+      margin-bottom: 0.5rem;
+    }
+    .stage-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 0.75rem;
+    }
+    .stage-desc {
+      font-size: 0.92rem;
+      color: var(--neutral-600);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Facility Showcase Grid */
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .facility-item {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 260px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+    }
+    .facility-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .facility-item:hover img {
+      transform: scale(1.08);
+    }
+    .facility-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.85) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: var(--white);
+    }
+    .facility-overlay h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .facility-overlay p {
+      font-size: 0.85rem;
+      color: var(--neutral-300);
+    }
+
+    /* Event & Notice Cards */
+    .event-card {
+      display: flex;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--neutral-200);
+      overflow: hidden;
+      transition: all var(--transition-fast);
+    }
+    .event-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--neutral-300);
+    }
+    .event-date-box {
+      background: var(--primary-900);
+      color: var(--white);
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 90px;
+      text-align: center;
+    }
+    .event-date-day {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1;
+    }
+    .event-date-month {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .event-info {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .event-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary-600);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .event-heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 0.35rem;
+    }
+    .event-snippet {
+      font-size: 0.85rem;
+      color: var(--neutral-600);
+    }
+
+    /* Testimonials Carousel/Cards */
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--neutral-200);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      position: relative;
+    }
+    .quote-icon {
+      color: var(--accent-gold);
+      opacity: 0.4;
+      margin-bottom: 1rem;
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      color: var(--neutral-700);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .author-name {
+      font-weight: 700;
+      color: var(--neutral-900);
+      font-size: 0.95rem;
+    }
+    .author-role {
+      font-size: 0.8rem;
+      color: var(--neutral-500);
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 100%);
+      border-radius: var(--radius-xl);
+      padding: 4.5rem 3rem;
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .cta-desc {
+      font-size: 1.15rem;
+      color: var(--neutral-300);
+      max-width: 650px;
+      margin: 0 auto 2.25rem auto;
+    }
+
+    @media (max-width: 900px) {
+      .hero-title {
+        font-size: 2.4rem;
+      }
+      .split-box {
+        grid-template-columns: 1fr;
+      }
+      .facility-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-stats-banner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar" aria-label="Quick announcements and contact">
+    <div class="container">
+      <div class="top-bar-item">
+        <span class="top-bar-pill">ADMISSIONS OPEN 2026-27</span>
+        <span>Entrance assessments for Grade Nursery to Grade XI are underway.</span>
+      </div>
+      <div class="top-bar-links">
+        <span class="top-bar-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 (0) 120 456-7890
+        </span>
+        <span class="top-bar-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; flex-shrink: 0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          admissions@eakschool.edu
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Sticky Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo" aria-label="EAK International School Home">
+          <div class="brand-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="brand-text-wrap">
+            <span class="brand-title">EAK INTERNATIONAL</span>
+            <span class="brand-tagline">Nurturing Excellence Since 1998</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="academics.html" class="nav-link">Academics</a></li>
+          <li><a href="admissions.html" class="nav-link">Admissions</a></li>
+          <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+          <li><a href="events.html" class="nav-link">Events & Notices</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="mobile-only-cta">
+            <a href="admissions.html" class="btn btn-accent">Apply for Admission</a>
+          </li>
+        </ul>
+
+        <!-- Right Action Button -->
+        <div class="nav-cta">
+          <a href="admissions.html" class="btn btn-accent btn-sm">Apply Now</a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Hero Section -->
+    <section class="hero" aria-label="School Introduction Hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            Recognized Among Top 10 K-12 Global Schools
+          </div>
+          <h1 class="hero-title">
+            Empowering Minds, <br>
+            <span>Shaping Future Global Leaders.</span>
+          </h1>
+          <p class="hero-subtitle">
+            At EAK International School, we blend rigorous academics, experiential STEAM learning, and compassionate leadership to prepare young learners for the challenges of tomorrow.
+          </p>
+          <div class="hero-buttons">
+            <a href="admissions.html" class="btn btn-accent btn-lg">Admission Inquiry 2026-27</a>
+            <a href="about.html" class="btn btn-outline-white btn-lg">Discover Our Campus</a>
+          </div>
+        </div>
+
+        <!-- Hero Stats Banner -->
+        <div class="hero-stats-banner stats-banner">
+          <div class="hero-stat-item">
+            <span class="hero-stat-num stat-number" data-target="28" data-suffix="+">28+</span>
+            <span class="hero-stat-label">Years of Educational Heritage</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-num stat-number" data-target="100" data-suffix="%">100%</span>
+            <span class="hero-stat-label">Board Examination Pass Rate</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-num stat-number" data-target="1" data-suffix=":12">1:12</span>
+            <span class="hero-stat-label">Teacher to Student Mentorship</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-num stat-number" data-target="45" data-suffix="+">45+</span>
+            <span class="hero-stat-label">Clubs, Sports & Creative Arts</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Why Choose EAK (Core Strengths) -->
+    <section class="section" aria-label="Why Choose Us">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge gold">Why Choose EAK</span>
+          <h2 class="section-title">An Environment Designed for Purposeful Growth</h2>
+          <p class="section-subtitle">We believe each child possesses unique genius. Our ecosystem equips them to thrive academically, socially, and emotionally.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="pillar-card">
+            <div class="pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3 class="pillar-title">Globally Benchmarked Curriculum</h3>
+            <p class="pillar-desc">Integrated CBSE & International Baccalaureate-aligned methodologies emphasizing critical inquiry and problem solving.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 class="pillar-title">Smart STEAM & AI Labs</h3>
+            <p class="pillar-desc">State-of-the-art robotics, artificial intelligence, and multimedia studios that turn abstract concepts into tangible inventions.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="pillar-title">Safe, Eco-Friendly Campus</h3>
+            <p class="pillar-desc">24/7 CCTV vigilance, GPS-monitored fleet, infirmary with certified medical staff, and lush green zero-carbon campus spaces.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <h3 class="pillar-title">Global Exchange Programs</h3>
+            <p class="pillar-desc">Collaborative cultural and academic exchange programs with sister institutions in the UK, Germany, and Japan.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="pillar-title">World-Class Athletic Complex</h3>
+            <p class="pillar-desc">Olympic-standard swimming pool, synthetic turf football field, indoor badminton arena, and specialized athletic coaches.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="pillar-title">1:1 Career & College Counseling</h3>
+            <p class="pillar-desc">Comprehensive guidance supporting Ivy League, Russell Group, and premier national institute admissions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Principal's Message & Leadership -->
+    <section class="section section-bg-alt" aria-label="Principal's Message">
+      <div class="container">
+        <div class="split-box">
+          <div class="split-image-wrap">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Dr. Eleanor Vance, Principal of EAK International School" class="split-image">
+            <div class="experience-badge">
+              <span>25+</span>
+              <small>Years In Education</small>
+            </div>
+          </div>
+          <div class="split-text-wrap">
+            <span class="section-badge">Leadership Voice</span>
+            <h2 class="section-title">"Education is not merely filling a vessel; it is kindling a lifelong flame."</h2>
+            <p style="margin-bottom: 1.25rem; font-size: 1.05rem; color: var(--neutral-700);">
+              Welcome to EAK International School. When we established this institution, our aspiration was clear: to craft a learning community where curiosity is celebrated and integrity is the bedrock of every pursuit.
+            </p>
+            <p style="margin-bottom: 2rem; color: var(--neutral-600);">
+              Today’s world requires innovators who are ethically grounded, emotionally agile, and globally conscious. Through individualized mentorship and dynamic inquiry, our students discover their voices and build the confidence to lead tomorrow.
+            </p>
+            <div>
+              <h4 style="font-size: 1.2rem; font-weight: 800; color: var(--neutral-900);">Dr. Eleanor Vance</h4>
+              <p style="color: var(--accent-gold-hover); font-weight: 600; font-size: 0.9rem;">Principal & Academic Director, Ph.D. (Oxford)</p>
+            </div>
+            <div style="margin-top: 1.5rem;">
+              <a href="about.html" class="btn btn-outline">Read Full Message & History</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Academic Structure Overview -->
+    <section class="section" aria-label="Academic Excellence">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge gold">Academic Pathway</span>
+          <h2 class="section-title">Structured Learning for Every Growth Stage</h2>
+          <p class="section-subtitle">From foundational curiosity to rigorous university preparatory diplomas, our curriculum evolves with your child.</p>
+        </div>
+
+        <div class="grid-4">
+          <!-- Primary -->
+          <div class="stage-card">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Primary School Students" class="stage-img">
+            <div class="stage-content">
+              <span class="stage-grade">Grade Nursery - 5</span>
+              <h3 class="stage-title">Primary School</h3>
+              <p class="stage-desc">Nurturing curiosity, foundational literacy, and experiential play-based exploration.</p>
+              <a href="academics.html" style="color: var(--primary-600); font-weight: 700; font-size: 0.9rem;">Explore Primary &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Middle -->
+          <div class="stage-card">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Middle School Learning" class="stage-img">
+            <div class="stage-content">
+              <span class="stage-grade">Grade 6 - 8</span>
+              <h3 class="stage-title">Middle School</h3>
+              <p class="stage-desc">Cultivating critical inquiry, scientific concepts, and collaborative project challenges.</p>
+              <a href="academics.html" style="color: var(--primary-600); font-weight: 700; font-size: 0.9rem;">Explore Middle &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Secondary -->
+          <div class="stage-card">
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="Secondary School Students in Classroom" class="stage-img">
+            <div class="stage-content">
+              <span class="stage-grade">Grade 9 - 10</span>
+              <h3 class="stage-title">Secondary School</h3>
+              <p class="stage-desc">Comprehensive board preparations, analytical skills, and leadership development.</p>
+              <a href="academics.html" style="color: var(--primary-600); font-weight: 700; font-size: 0.9rem;">Explore Secondary &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Senior Secondary -->
+          <div class="stage-card">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Senior Secondary High Schoolers" class="stage-img">
+            <div class="stage-content">
+              <span class="stage-grade">Grade 11 - 12</span>
+              <h3 class="stage-title">Senior Secondary</h3>
+              <p class="stage-desc">Specialized Science, Commerce, and Humanities streams with dedicated entrance coaching.</p>
+              <a href="academics.html" style="color: var(--primary-600); font-weight: 700; font-size: 0.9rem;">Explore Senior &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Facilities Spotlight Grid -->
+    <section class="section section-bg-alt" aria-label="School Infrastructure">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Infrastructure</span>
+          <h2 class="section-title">Designed to Inspire Discovery</h2>
+          <p class="section-subtitle">A 20-acre modern campus created with purpose-built spaces for intellectual, physical, and artistic pursuit.</p>
+        </div>
+
+        <div class="facility-grid">
+          <div class="facility-item">
+            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80" alt="Smart Classrooms">
+            <div class="facility-overlay">
+              <h3>Smart Interactive Classrooms</h3>
+              <p>4K interactive smart boards, ergonomic seating, and climate control.</p>
+            </div>
+          </div>
+
+          <div class="facility-item">
+            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80" alt="Advanced Science & Innovation Labs">
+            <div class="facility-overlay">
+              <h3>Next-Gen Research Labs</h3>
+              <p>Specialized Physics, Chemistry, Biology, and Robotics workshops.</p>
+            </div>
+          </div>
+
+          <div class="facility-item">
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80" alt="Central Digital Library">
+            <div class="facility-overlay">
+              <h3>Knowledge Hub & Digital Library</h3>
+              <p>Over 35,000 volumes, private study pods, and global e-journal databases.</p>
+            </div>
+          </div>
+
+          <div class="facility-item">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Athletic Complex and Olympic Pool">
+            <div class="facility-overlay">
+              <h3>Multi-Sport Stadium & Pool</h3>
+              <p>FIFA-grade synthetic football turf and 8-lane semi-Olympic pool.</p>
+            </div>
+          </div>
+
+          <div class="facility-item">
+            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80" alt="Performing Arts Auditorium">
+            <div class="facility-overlay">
+              <h3>800-Seat Performing Arts Auditorium</h3>
+              <p>Acoustically tuned theater for drama, classical dance, and orchestra.</p>
+            </div>
+          </div>
+
+          <div class="facility-item">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="GPS Tracked Smart Transportation Fleet">
+            <div class="facility-overlay">
+              <h3>Safe GPS-Monitored Transit</h3>
+              <p>Air-conditioned fleet with live CCTV, lady attendants, and parent app tracking.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="facilities.html" class="btn btn-primary">Take a Complete Campus Tour &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Latest News & Upcoming Events -->
+    <section class="section" aria-label="Events and Announcements">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="section-badge gold">Campus Pulse</span>
+            <h2 class="section-title" style="margin-bottom: 0;">Latest News & Events</h2>
+          </div>
+          <a href="events.html" class="btn btn-outline">View All Announcements &rarr;</a>
+        </div>
+
+        <div class="grid-2">
+          <!-- Event 1 -->
+          <div class="event-card">
+            <div class="event-date-box">
+              <span class="event-date-day">18</span>
+              <span class="event-date-month">OCT 2026</span>
+            </div>
+            <div class="event-info">
+              <span class="event-tag">Academic Event</span>
+              <h3 class="event-heading">Annual Inter-School STEAM Exhibition 2026</h3>
+              <p class="event-snippet">Over 40 schools showcasing student prototypes in AI, sustainable energy, and automated robotics.</p>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="event-card">
+            <div class="event-date-box">
+              <span class="event-date-day">24</span>
+              <span class="event-date-month">OCT 2026</span>
+            </div>
+            <div class="event-info">
+              <span class="event-tag">Admissions</span>
+              <h3 class="event-heading">Open House & Interactive Campus Orientation</h3>
+              <p class="event-snippet">Prospective parents and children can meet faculty heads and tour our laboratories and studios.</p>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="event-card">
+            <div class="event-date-box">
+              <span class="event-date-day">05</span>
+              <span class="event-date-month">NOV 2026</span>
+            </div>
+            <div class="event-info">
+              <span class="event-tag">Athletics</span>
+              <h3 class="event-heading">Inter-House Championship & Athletic Meet</h3>
+              <p class="event-snippet">A 3-day track and field sports carnival celebrating sportsmanship and physical resilience.</p>
+            </div>
+          </div>
+
+          <!-- Event 4 -->
+          <div class="event-card">
+            <div class="event-date-box">
+              <span class="event-date-day">14</span>
+              <span class="event-date-month">NOV 2026</span>
+            </div>
+            <div class="event-info">
+              <span class="event-tag">Notice</span>
+              <h3 class="event-heading">Pre-Board Diagnostic Examination Schedule</h3>
+              <p class="event-snippet">Official timetable release for Grade X and XII students ahead of final board assessments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Parent & Student Testimonials -->
+    <section class="section section-bg-alt" aria-label="Parent Testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Community Voice</span>
+          <h2 class="section-title">What Families Say About EAK</h2>
+          <p class="section-subtitle">Real feedback from parents and alumni who have experienced the transformative power of our school.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="testimonial-card">
+            <div class="quote-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            </div>
+            <p class="testimonial-text">"EAK has been exceptional for both of my children. The teachers don’t just teach textbooks; they ignite independent thought and genuine curiosity."</p>
+            <div class="author-info">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Anita Sharma" class="author-avatar">
+              <div>
+                <div class="author-name">Anita Sharma</div>
+                <div class="author-role">Parent of Grade VII & IX Students</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            </div>
+            <p class="testimonial-text">"The college counseling cell guided me step-by-step from SAT preparation to essay reviews. Thanks to EAK, I was accepted into my top-choice computer science program."</p>
+            <div class="author-info">
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=120&q=80" alt="Rohan Verma" class="author-avatar">
+              <div>
+                <div class="author-name">Rohan Verma</div>
+                <div class="author-role">Alumnus, Class of 2024 (UC Berkeley)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            </div>
+            <p class="testimonial-text">"The safety standards, clean green campus, and transparent communication between school administration and parents gave us immense peace of mind."</p>
+            <div class="author-info">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Marcus Thompson" class="author-avatar">
+              <div>
+                <div class="author-name">Dr. Marcus Thompson</div>
+                <div class="author-role">Parent of Grade IV Student</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Admissions Call to Action Banner -->
+    <section class="section" style="padding-top: 1rem;">
+      <div class="container">
+        <div class="cta-banner">
+          <h2 class="cta-title">Begin Your Child’s Journey to Excellence</h2>
+          <p class="cta-desc">
+            Admissions for the upcoming academic session 2026-27 are now open. Reserve your consultation with our admissions deans or schedule a private campus walk.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="admissions.html" class="btn btn-accent btn-lg">Apply Online Now</a>
+            <a href="contact.html" class="btn btn-outline-white btn-lg">Schedule Campus Visit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div>
+          <div class="footer-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold);">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            <span>EAK INTERNATIONAL</span>
+          </div>
+          <p class="footer-about-text">
+            EAK International School is committed to delivering holistic, values-based, world-class education for young global leaders from Kindergarten through Grade XII.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-title">Quick Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About the School</a></li>
+            <li><a href="academics.html">Academic Structure</a></li>
+            <li><a href="admissions.html">Admissions Procedure</a></li>
+            <li><a href="facilities.html">Campus Infrastructure</a></li>
+            <li><a href="events.html">Notices & Circulars</a></li>
+            <li><a href="contact.html">Contact & Directions</a></li>
+          </ul>
+        </div>
+
+        <!-- Academics Links -->
+        <div>
+          <h4 class="footer-title">Academics</h4>
+          <ul class="footer-nav-list">
+            <li><a href="academics.html#primary">Primary Wing</a></li>
+            <li><a href="academics.html#middle">Middle School</a></li>
+            <li><a href="academics.html#secondary">Secondary Wing</a></li>
+            <li><a href="academics.html#senior">Senior Secondary</a></li>
+            <li><a href="academics.html#cocurricular">Co-Curricular Clubs</a></li>
+            <li><a href="academics.html#achievements">School Achievements</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h4 class="footer-title">Campus Information</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Plot 42, Institutional Area, Sector 62, Expressway Knowledge Corridor</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+91 (0) 120 456-7890 / 91</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>Mon - Fri: 8:00 AM - 4:30 PM<br>Sat: 9:00 AM - 1:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 EAK International School. All Rights Reserved. Affiliated to CBSE & Global Baccalaureate.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Mandatory Disclosures</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top-btn" aria-label="Scroll back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

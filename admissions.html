@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admissions 2026-27 | EAK International School</title>
+  <meta name="description" content="Step-by-step admission process, eligibility criteria, required documents, fee structures, and FAQs for EAK International School.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   EAK INTERNATIONAL SCHOOL - DESIGN SYSTEM & GLOBAL STYLESHEET
+   Clean, Modern, Accessible CSS with CSS Variables & Responsive Layouts
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette */
+  --primary-900: #0a192f;
+  --primary-800: #0f2347;
+  --primary-700: #153268;
+  --primary-600: #1d458d;
+  --primary-500: #2563eb;
+  
+  --accent-gold: #f59e0b;
+  --accent-gold-hover: #d97706;
+  --accent-gold-light: #fef3c7;
+  
+  --secondary-teal: #0d9488;
+  --secondary-teal-light: #ccfbf1;
+  
+  /* Neutral Grays */
+  --neutral-900: #0f172a;
+  --neutral-800: #1e293b;
+  --neutral-700: #334155;
+  --neutral-600: #475569;
+  --neutral-500: #64748b;
+  --neutral-400: #94a3b8;
+  --neutral-300: #cbd5e1;
+  --neutral-200: #e2e8f0;
+  --neutral-100: #f1f5f9;
+  --neutral-50: #f8fafc;
+  --white: #ffffff;
+
+  /* Typography */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Elevation / Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.1), 0 4px 8px -2px rgba(15, 23, 42, 0.05);
+  --shadow-xl: 0 20px 30px -6px rgba(15, 23, 42, 0.15);
+
+  /* Borders & Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Layout */
+  --container-max: 1240px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* CSS Reset & Defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--neutral-50);
+  color: var(--neutral-700);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+/* Base Utility Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Top Announcement Banner */
+.top-bar {
+  background: var(--primary-900);
+  color: var(--neutral-300);
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.top-bar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.top-bar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.top-bar-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent-gold);
+}
+
+.top-bar-pill {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-gold);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+/* Header & Navigation Bar */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--neutral-200);
+  transition: all var(--transition-fast);
+}
+
+.site-header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 800;
+  color: var(--primary-900);
+}
+
+.brand-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-800), var(--primary-600));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary-900);
+  line-height: 1.1;
+}
+
+.brand-tagline {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--neutral-500);
+}
+
+/* Navigation Links */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobile-only-cta {
+  display: none;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--neutral-700);
+  position: relative;
+  padding: 0.5rem 0;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-600);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: var(--radius-full);
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Primary Button Styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  text-align: center;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: var(--primary-800);
+  color: var(--white);
+  border-color: var(--primary-800);
+}
+
+.btn-primary:hover {
+  background: var(--primary-900);
+  box-shadow: 0 4px 12px rgba(15, 35, 71, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background: var(--accent-gold);
+  color: var(--neutral-900);
+  border-color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.btn-accent:hover {
+  background: var(--accent-gold-hover);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--neutral-800);
+  border-color: var(--neutral-300);
+}
+
+.btn-outline:hover {
+  background: var(--neutral-100);
+  border-color: var(--neutral-400);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+}
+
+.btn-sm {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 0.9rem 1.8rem;
+  font-size: 1.05rem;
+}
+
+/* Mobile Toggle Hamburger */
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--neutral-800);
+}
+
+.mobile-toggle svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Section Common Styling */
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-bg-alt {
+  background-color: var(--white);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-600);
+  background: var(--neutral-100);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+}
+
+.section-badge.gold {
+  color: #b45309;
+  background: var(--accent-gold-light);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--neutral-900);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--neutral-600);
+}
+
+/* Breadcrumb Header for Inner Pages */
+.page-hero {
+  background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 60%, var(--primary-700) 100%);
+  color: var(--white);
+  padding: 4.5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page-hero-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.page-hero-desc {
+  font-size: 1.2rem;
+  color: var(--neutral-300);
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--neutral-400);
+}
+
+.breadcrumb a {
+  color: var(--neutral-300);
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-gold);
+}
+
+.breadcrumb-separator {
+  color: var(--neutral-500);
+}
+
+/* Card Elements */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--neutral-300);
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Footer Section */
+.site-footer {
+  background: var(--primary-900);
+  color: var(--neutral-400);
+  padding: 4.5rem 0 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.footer-about-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--neutral-300);
+}
+
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neutral-300);
+  transition: all var(--transition-fast);
+}
+
+.social-icon-btn:hover {
+  background: var(--accent-gold);
+  color: var(--neutral-900);
+  transform: translateY(-2px);
+}
+
+.footer-title {
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--accent-gold);
+}
+
+.footer-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-list a {
+  color: var(--neutral-300);
+  font-size: 0.92rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-nav-list a:hover {
+  color: var(--accent-gold);
+  transform: translateX(4px);
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.92rem;
+  color: var(--neutral-300);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.footer-contact-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--neutral-500);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Floating Action / Scroll-to-top Button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-800);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-fast);
+  z-index: 99;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-top-btn:hover {
+  background: var(--accent-gold);
+  color: var(--neutral-900);
+  transform: translateY(-3px);
+}
+
+/* Toast Notification for Forms */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--neutral-900);
+  color: var(--white);
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-left: 4px solid var(--accent-gold);
+  animation: toastFadeIn 0.3s ease;
+}
+
+@keyframes toastFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    box-shadow: var(--shadow-xl);
+    gap: 1.25rem;
+    border-top: 1px solid var(--neutral-200);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    transform: translateY(-150%);
+    transition: transform 0.35s ease;
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-menu .mobile-only-cta {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .page-hero-title {
+    font-size: 2.1rem;
+  }
+}
+
+</style>
+  <style>
+    /* 5-Step Process Roadmap */
+    .process-roadmap {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      position: relative;
+      margin-top: 2rem;
+    }
+    .process-step-card {
+      background: var(--white);
+      border: 1px solid var(--neutral-200);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.25rem;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-normal);
+    }
+    .process-step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-gold);
+    }
+    .step-number-bubble {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary-800);
+      color: var(--accent-gold);
+      font-weight: 800;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem auto;
+      border: 3px solid var(--accent-gold-light);
+    }
+    .step-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 0.5rem;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--neutral-600);
+      line-height: 1.5;
+    }
+
+    /* FAQ Accordion Styling */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--neutral-200);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all var(--transition-fast);
+    }
+    .faq-item.active {
+      border-color: var(--primary-600);
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      color: var(--neutral-900);
+      font-size: 1.05rem;
+      user-select: none;
+    }
+    .faq-question:hover {
+      color: var(--primary-600);
+    }
+    .faq-chevron {
+      transition: transform var(--transition-fast);
+    }
+    .faq-item.active .faq-chevron {
+      transform: rotate(180deg);
+      color: var(--primary-600);
+    }
+    .faq-answer {
+      padding: 0 1.5rem 1.25rem 1.5rem;
+      color: var(--neutral-600);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* Inquiry Form Container */
+    .form-wrapper {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem 2.5rem;
+      border: 1px solid var(--neutral-200);
+      box-shadow: var(--shadow-lg);
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--neutral-800);
+      margin-bottom: 0.4rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--neutral-300);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      color: var(--neutral-900);
+      background: var(--neutral-50);
+      transition: border-color var(--transition-fast);
+    }
+    .form-control:focus {
+      border-color: var(--primary-600);
+      background: var(--white);
+    }
+
+    /* Criteria Table */
+    .table-container {
+      overflow-x: auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--neutral-200);
+      box-shadow: var(--shadow-sm);
+    }
+    .criteria-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .criteria-table th {
+      background: var(--neutral-100);
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    .criteria-table td {
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--neutral-700);
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    .criteria-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    @media (max-width: 992px) {
+      .process-roadmap {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 576px) {
+      .process-roadmap {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <aside class="top-bar">
+    <div class="container">
+      <div class="top-bar-item">
+        <span class="top-bar-pill">ADMISSIONS 2026-27</span>
+        <span>Entrance assessments for Grade Nursery to Grade XI are underway.</span>
+      </div>
+      <div class="top-bar-links">
+        <span class="top-bar-item">+91 (0) 120 456-7890</span>
+        <span class="top-bar-item">admissions@eakschool.edu</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="brand-text-wrap">
+            <span class="brand-title">EAK INTERNATIONAL</span>
+            <span class="brand-tagline">Nurturing Excellence Since 1998</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="academics.html" class="nav-link">Academics</a></li>
+          <li><a href="admissions.html" class="nav-link active">Admissions</a></li>
+          <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+          <li><a href="events.html" class="nav-link">Events & Notices</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <a href="#inquiryForm" class="btn btn-accent btn-sm">Inquiry Form</a>
+        </div>
+
+        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Admissions</span>
+        </div>
+        <h1 class="page-hero-title">Admissions & Enrollment 2026-27</h1>
+        <p class="page-hero-desc">Your child’s journey to an inspiring future begins here. We look forward to welcoming your family into the EAK community.</p>
+      </div>
+    </section>
+
+    <!-- 1. The 5-Step Admission Process as required by Assignment -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge gold">Transparent Steps</span>
+          <h2 class="section-title">The 5-Step Admissions Process</h2>
+          <p class="section-subtitle">A warm, structured, and clear transition designed to understand your child’s unique needs.</p>
+        </div>
+
+        <div class="process-roadmap">
+          <!-- Step 1 -->
+          <div class="process-step-card">
+            <div class="step-number-bubble">1</div>
+            <h3 class="step-name">Enquiry</h3>
+            <p class="step-desc">Fill out our online inquiry form or visit our admissions desk for a prospectus and initial counseling.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step-card">
+            <div class="step-number-bubble">2</div>
+            <h3 class="step-name">Application</h3>
+            <p class="step-desc">Submit the official registration dossier alongside academic transcripts and supporting identification.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step-card">
+            <div class="step-number-bubble">3</div>
+            <h3 class="step-name">Interaction / Assessment</h3>
+            <p class="step-desc">Friendly interactive session for Kindergarten/Primary, and concept evaluation for Middle & High School.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step-card">
+            <div class="step-number-bubble">4</div>
+            <h3 class="step-name">Selection</h3>
+            <p class="step-desc">Communication of admission offer by email along with scholarship status and fee schedule guidelines.</p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="process-step-card">
+            <div class="step-number-bubble">5</div>
+            <h3 class="step-name">Enrollment</h3>
+            <p class="step-desc">Formal fee payment, document verification, welcome orientation kit distribution, and uniform allocation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Eligibility Criteria & Required Documents -->
+    <section class="section section-bg-alt">
+      <div class="container">
+        <div class="grid-2">
+          <!-- Eligibility Table -->
+          <div>
+            <span class="section-badge">Guidelines</span>
+            <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--neutral-900); margin-bottom: 1.25rem;">Age Eligibility Criteria</h2>
+            <div class="table-container">
+              <table class="criteria-table">
+                <thead>
+                  <tr>
+                    <th>Grade / Wing</th>
+                    <th>Age as on 31st March 2026</th>
+                    <th>Prior Preparation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Nursery / Early Years</strong></td>
+                    <td>3+ Years</td>
+                    <td>Informal Playgroup / Home</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kindergarten (KG)</strong></td>
+                    <td>4+ Years</td>
+                    <td>Nursery Completion</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Grade 1 (Primary)</strong></td>
+                    <td>5+ to 6 Years</td>
+                    <td>Kindergarten Certificate</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Grade 6 (Middle)</strong></td>
+                    <td>10+ to 11 Years</td>
+                    <td>Grade 5 Report Card</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Grade 9 (Secondary)</strong></td>
+                    <td>13+ to 14 Years</td>
+                    <td>Grade 8 Clear Marks</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Grade 11 (Senior)</strong></td>
+                    <td>15+ to 16 Years</td>
+                    <td>Class X Board Results</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Required Documents Checklist -->
+          <div>
+            <span class="section-badge gold">Checklist</span>
+            <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--neutral-900); margin-bottom: 1.25rem;">Mandatory Documents</h2>
+            <div class="card" style="padding: 2rem;">
+              <ul style="display: flex; flex-direction: column; gap: 1rem;">
+                <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5" style="margin-top: 2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                  <div><strong>Official Birth Certificate:</strong> Issued by Municipal Corporation or relevant authority (Original & 2 photocopies).</div>
+                </li>
+                <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5" style="margin-top: 2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                  <div><strong>Previous Academic Records:</strong> Report cards / Mark sheets of the last two academic years (Grade 2 upwards).</div>
+                </li>
+                <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5" style="margin-top: 2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                  <div><strong>Transfer Certificate (TC):</strong> Countersigned by Education Department / Board officer upon final admission.</div>
+                </li>
+                <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5" style="margin-top: 2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                  <div><strong>Passport Size Photographs:</strong> 4 colored photos of candidate and 2 each of parents/guardians.</div>
+                </li>
+                <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5" style="margin-top: 2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                  <div><strong>Proof of Residence:</strong> Passport, Aadhaar, Utility Bill, or Registered Lease Agreement.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Admission Inquiry Prototype Form -->
+    <section class="section" id="inquiryForm">
+      <div class="container">
+        <div style="max-width: 860px; margin: 0 auto;">
+          <div class="form-wrapper">
+            <div style="text-align: center; margin-bottom: 2rem;">
+              <span class="section-badge gold">Online Prototype</span>
+              <h2 style="font-size: 2rem; font-weight: 800; color: var(--neutral-900); margin: 0.5rem 0;">Admissions Inquiry & Application</h2>
+              <p style="color: var(--neutral-600);">Submit this form to schedule a campus tour or reserve an interactive assessment slot.</p>
+            </div>
+
+            <form class="interactive-form">
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="studentName">Student's Full Name *</label>
+                  <input type="text" id="studentName" class="form-control" placeholder="e.g. Aryan Sharma" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="dob">Date of Birth *</label>
+                  <input type="date" id="dob" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="gradeApplying">Grade Applying For *</label>
+                  <select id="gradeApplying" class="form-control" required>
+                    <option value="">-- Choose Grade --</option>
+                    <option value="Nursery">Nursery / Playgroup</option>
+                    <option value="KG">Kindergarten</option>
+                    <option value="Primary">Grades 1 to 5 (Primary)</option>
+                    <option value="Middle">Grades 6 to 8 (Middle)</option>
+                    <option value="Secondary">Grades 9 & 10 (Secondary)</option>
+                    <option value="Senior">Grades 11 & 12 (Senior Secondary)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="academicYear">Session Year</label>
+                  <select id="academicYear" class="form-control">
+                    <option value="2026-27">Academic Session 2026 - 2027</option>
+                    <option value="2027-28">Academic Session 2027 - 2028 (Advance)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="parentName">Parent / Guardian Name *</label>
+                  <input type="text" id="parentName" class="form-control" placeholder="e.g. Dr. Rajesh Sharma" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="parentPhone">Phone Number *</label>
+                  <input type="tel" id="parentPhone" class="form-control" placeholder="+91 98765 43210" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="parentEmail">Email Address *</label>
+                <input type="email" id="parentEmail" class="form-control" placeholder="parent.name@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="specialNotes">Questions or Special Requests (Optional)</label>
+                <textarea id="specialNotes" class="form-control" rows="3" placeholder="Tell us about special interests, transport requirements, or boarding inquiries..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-accent btn-lg" style="width: 100%; margin-top: 1rem;">
+                Submit Inquiry Application
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Frequently Asked Questions (FAQ Accordion) -->
+    <section class="section section-bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know about scholarships, admission criteria, and deadlines.</p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-item active">
+            <div class="faq-question">
+              <span>What is the teacher-to-student ratio at EAK International?</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-answer">
+              We maintain an optimal 1:12 mentor-to-student ratio in kindergarten and 1:18 in primary and high school classrooms. This ensures personalized attention, immediate feedback, and tailored academic support for every child.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Are merit scholarships available for exceptional students?</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-answer">
+              Yes. EAK provides up to 100% academic scholarships for candidates demonstrating exceptional talent in national Olympiads, state/national sports, and meritorious performance in Grade X board examinations.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How are students transported safely to and from campus?</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-answer">
+              Our GPS-enabled bus fleet covers over 45 arterial routes across the metropolitan region. Each bus features onboard CCTV, speed governors, first-aid kits, and vetted female attendants with live tracking via our parent mobile portal.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can we schedule an in-person physical tour of the campus?</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-answer">
+              Campus tours are conducted every Monday through Saturday between 9:00 AM and 2:30 PM. You can book an appointment via our Contact page or simply drop an inquiry using the form above.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What curriculum does the school follow?</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-answer">
+              We follow an internationally enriched CBSE curriculum integrated with inquiry-based STEM methodologies and global languages (French, German, and Spanish options from Grade 6 upwards).
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 EAK International School. All Rights Reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="index.html">Home</a>
+          <a href="academics.html">Academics</a>
+          <a href="admissions.html">Admissions</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
