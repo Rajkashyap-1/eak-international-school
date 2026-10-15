@@ -125,13 +125,14 @@ button, input, textarea, select {
   padding-right: 1.5rem;
 }
 
-/* Top Announcement Banner */
+/* Modern Sleek Top Notification Bar */
 .top-bar {
-  background: var(--primary-900);
-  color: var(--neutral-300);
-  font-size: 0.85rem;
-  padding: 0.5rem 0;
+  background: linear-gradient(90deg, #071527 0%, #0c203b 50%, #071527 100%);
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  padding: 0.6rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.01em;
 }
 
 .top-bar .container {
@@ -139,7 +140,79 @@ button, input, textarea, select {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.75rem;
+}
+
+.top-bar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 500;
+}
+
+.top-bar-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  padding: 0.22rem 0.7rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.12);
+}
+
+.top-bar-pulse {
+  width: 6px;
+  height: 6px;
+  background-color: #f59e0b;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.8);
+  animation: topBarPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  flex-shrink: 0;
+}
+
+@keyframes topBarPulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+.top-bar-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--accent-gold);
+  color: #0f172a;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  margin-left: 0.4rem;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.top-bar-cta-btn:hover {
+  background: #fbbf24;
+  color: #000;
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
 }
 
 .top-bar-links {
@@ -148,26 +221,23 @@ button, input, textarea, select {
   gap: 1.25rem;
 }
 
-.top-bar-item {
+.top-contact-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.top-bar-item svg {
-  width: 14px;
-  height: 14px;
-  color: var(--accent-gold);
+.top-contact-link:hover {
+  color: #fbbf24;
 }
 
-.top-bar-pill {
-  background: rgba(245, 158, 11, 0.15);
+.top-contact-link svg {
   color: var(--accent-gold);
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.03em;
+  flex-shrink: 0;
 }
 
 /* Header & Navigation Bar */
@@ -727,20 +797,27 @@ button, input, textarea, select {
     top: 80px;
     left: 0;
     width: 100%;
-    background: var(--white);
+    background: #ffffff;
     flex-direction: column;
-    padding: 2rem 1.5rem;
-    box-shadow: var(--shadow-xl);
+    padding: 2rem 1.5rem 2.5rem;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
     gap: 1.25rem;
     border-top: 1px solid var(--neutral-200);
     max-height: calc(100vh - 80px);
     overflow-y: auto;
     transform: translateY(-150%);
-    transition: transform 0.35s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.35s;
+    z-index: 99999;
   }
 
   .nav-menu.open {
     transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .nav-cta {
@@ -869,15 +946,23 @@ button, input, textarea, select {
 <body>
 
   <!-- Top Bar -->
-  <aside class="top-bar">
+    <!-- Top Announcement Bar -->
+  <aside class="top-bar" aria-label="Quick announcements and contact">
     <div class="container">
       <div class="top-bar-item">
-        <span class="top-bar-pill">ADMISSIONS OPEN 2026-27</span>
-        <span>Entrance assessments for Grade Nursery to Grade XI are underway.</span>
+        <span class="top-bar-pill"><span class="top-bar-pulse"></span>Admissions 2026-27</span>
+        <span>Entrance assessments underway for Nursery to Grade XI</span>
+        <a href="admissions.html" class="top-bar-cta-btn">Apply Now &rarr;</a>
       </div>
       <div class="top-bar-links">
-        <span class="top-bar-item">+91 (0) 120 456-7890</span>
-        <span class="top-bar-item">admissions@eakschool.edu</span>
+        <a href="tel:+911204567890" class="top-contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width: 13px; height: 13px; flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 (0) 120 456-7890
+        </a>
+        <a href="mailto:admissions@eakschool.edu" class="top-contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width: 13px; height: 13px; flex-shrink: 0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          admissions@eakschool.edu
+        </a>
       </div>
     </div>
   </aside>
@@ -1076,6 +1161,241 @@ button, input, textarea, select {
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+/**
+ * EAK International School - Client Interactions
+ * Modular JavaScript for Navigation, Modals, Accordions, Search & Filters, and Alerts
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNavbar();
+  initScrollTop();
+  initFaqAccordion();
+  initEventFilters();
+  initInteractiveForms();
+  initStatsCounter();
+});
+
+/* 1. Sticky Navigation & Mobile Menu Toggle */
+function initNavbar() {
+  const header = document.querySelector('.site-header');
+  const toggleBtn = document.querySelector('.mobile-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  });
+
+  if (toggleBtn && navMenu) {
+    const handleToggle = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('open');
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+      toggleBtn.innerHTML = isOpen 
+        ? `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+        : `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+    };
+
+    toggleBtn.addEventListener('click', handleToggle);
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target) && navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+      }
+    });
+
+    // Close menu when any nav link is tapped
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+}
+
+/* 2. Scroll to Top Floating Button */
+function initScrollTop() {
+  const scrollBtn = document.querySelector('.scroll-top-btn');
+  if (!scrollBtn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  });
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* 3. FAQ Accordion for Admissions Page */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (!question) return;
+
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('active');
+      
+      // Close other opened FAQs
+      faqItems.forEach(other => {
+        if (other !== item) other.classList.remove('active');
+      });
+
+      // Toggle current
+      item.classList.toggle('active', !isOpen);
+    });
+  });
+}
+
+/* 4. Live Category Filter and Search for Events & Notices Page */
+function initEventFilters() {
+  const filterBtns = document.querySelectorAll('.filter-pill');
+  const searchInput = document.getElementById('eventSearchInput');
+  const cards = document.querySelectorAll('.event-card-item');
+
+  if (!cards.length) return;
+
+  function filterCards() {
+    const activeCategory = document.querySelector('.filter-pill.active')?.getAttribute('data-filter') || 'all';
+    const query = searchInput?.value.toLowerCase().trim() || '';
+
+    cards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      const title = card.querySelector('.event-title')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('.event-desc')?.textContent.toLowerCase() || '';
+
+      const matchesCat = activeCategory === 'all' || category === activeCategory;
+      const matchesSearch = !query || title.includes(query) || desc.includes(query);
+
+      if (matchesCat && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterCards();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterCards);
+  }
+}
+
+/* 5. Interactive Form Prototype with Toast Feedback */
+function initInteractiveForms() {
+  const forms = document.querySelectorAll('.interactive-form');
+
+  forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : '';
+      
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Submitting...</span>`;
+      }
+
+      setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+        form.reset();
+        showToast('Thank you! Your inquiry has been received. Our Admissions Desk will contact you within 24 hours.');
+      }, 700);
+    });
+  });
+}
+
+/* Toast Message Display */
+function showToast(message) {
+  let container = document.querySelector('.toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.className = 'toast-container';
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span>${message}</span>
+  `;
+
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.4s ease';
+    setTimeout(() => toast.remove(), 400);
+  }, 4000);
+}
+
+/* 6. Dynamic Stats Counter Animation on Scroll */
+function initStatsCounter() {
+  const statNumbers = document.querySelectorAll('.stat-number');
+  if (!statNumbers.length) return;
+
+  let started = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        statNumbers.forEach(el => {
+          const target = parseInt(el.getAttribute('data-target') || '0', 10);
+          const suffix = el.getAttribute('data-suffix') || '';
+          let count = 0;
+          const speed = Math.ceil(target / 40);
+
+          const updateCount = () => {
+            count += speed;
+            if (count >= target) {
+              el.textContent = target.toLocaleString() + suffix;
+            } else {
+              el.textContent = count.toLocaleString() + suffix;
+              requestAnimationFrame(updateCount);
+            }
+          };
+          updateCount();
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  const statsSection = document.querySelector('.stats-banner');
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+}
+
+</script>
 </body>
 </html>
